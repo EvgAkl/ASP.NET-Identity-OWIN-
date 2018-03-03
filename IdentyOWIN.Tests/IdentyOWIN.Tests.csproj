@@ -52,9 +52,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IdentyOWIN\IdentyOWIN.csproj">
+    <ProjectReference Include="..\IdentyOWIN\IdentityOWIN.csproj">
       <Project>{2DBE29E4-CF03-4D9E-BBEC-03B7512FE69E}</Project>
-      <Name>IdentyOWIN</Name>
+      <Name>IdentityOWIN</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
