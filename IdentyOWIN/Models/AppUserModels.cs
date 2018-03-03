@@ -6,6 +6,8 @@ namespace IdentyOWIN.Models
     public class AppUser : IdentityUser
     {
 
+
+
     } // end class AppUser
 
 
