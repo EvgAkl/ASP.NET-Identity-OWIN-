@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace IdentyOWIN.Models
+namespace IdentityOWIN.Models
 {
     public class AppUser : IdentityUser
     {

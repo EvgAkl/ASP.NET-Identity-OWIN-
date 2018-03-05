@@ -1,8 +1,8 @@
-﻿using IdentyOWIN.Models;
+﻿using IdentityOWIN.Models;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace IdentyOWIN.Infrastructure
+namespace IdentityOWIN.Infrastructure
 {
     public class AppIdentityDbContext : IdentityDbContext<AppUser>
     {

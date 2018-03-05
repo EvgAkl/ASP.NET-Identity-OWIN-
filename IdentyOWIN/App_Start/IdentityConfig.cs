@@ -2,9 +2,9 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using IdentyOWIN.Infrastructure;
+using IdentityOWIN.Infrastructure;
 
-namespace IdentyOWIN.App_Start
+namespace IdentityOWIN
 {
     public class IdentityConfig
     {
