@@ -4,21 +4,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IdentyOWIN.Infrastructure
 {
-    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
-    {
-        public void PerformInitialSetup(AppIdentityDbContext context)
-        {
-
-        }
-
-        protected override void Seed(AppIdentityDbContext context)
-        {
-            PerformInitialSetup(context);
-            base.Seed(context);
-        }
-
-    } // end class IdentityDbInit
-
     public class AppIdentityDbContext : IdentityDbContext<AppUser>
     {
         public AppIdentityDbContext() : base("name=IdentityDb") { }
@@ -34,6 +19,22 @@ namespace IdentyOWIN.Infrastructure
         }
 
 
-    } // end class
+    } // end class AppIdentityDbContext
 
+    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+    {
+        public void PerformInitialSetup(AppIdentityDbContext context)
+        {
+
+        }
+
+        protected override void Seed(AppIdentityDbContext context)
+        {
+            PerformInitialSetup(context);
+            base.Seed(context);
+        }
+
+    } // end class IdentityDbInit
+
+    
 } // end namespace

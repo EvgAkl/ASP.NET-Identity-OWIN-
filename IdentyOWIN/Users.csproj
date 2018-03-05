@@ -174,7 +174,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
-    <Compile Include="Infrastructure\AppUserManager.cs" />
+    <Compile Include="Infrastructure\AppUserManage.cs" />
     <Compile Include="Models\AppUserModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
