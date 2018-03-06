@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using IdentityOWIN.Models;
+using IdentityOWIN.Infrastructure;
 
 
 namespace IdentityOWIN.Infrastructure
@@ -19,6 +20,16 @@ namespace IdentityOWIN.Infrastructure
         {
             AppIdentityDbContext db = context.Get<AppIdentityDbContext>();
             AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
+
+            manager.PasswordValidator = new CustuomPasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = true,
+                RequireUppercase = true
+            };
+
             return manager;
         }
 
