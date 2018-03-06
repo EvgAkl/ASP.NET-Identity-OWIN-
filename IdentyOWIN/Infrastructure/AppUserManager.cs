@@ -30,10 +30,9 @@ namespace IdentityOWIN.Infrastructure
                 RequireUppercase = true
             };
 
-            manager.UserValidator = new CustomUserValidator(manager)
+            manager.UserValidator = new CustomUserValidator()
             {
-                AllowOnlyAlphanumericUserNames = true,
-                RequireUniqueEmail = true
+
             };
 
             return manager;
