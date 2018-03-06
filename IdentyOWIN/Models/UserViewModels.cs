@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace IdentyOWIN.Models
+namespace IdentityOWIN.Models
 {
     public class CreateModel
     {

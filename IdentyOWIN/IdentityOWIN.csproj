@@ -186,6 +186,7 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
