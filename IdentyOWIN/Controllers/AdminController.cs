@@ -39,7 +39,7 @@ namespace IdentyOWIN.Controllers
         public ActionResult Create()
         {
             return View();
-        }
+        } // end Create() #1
 
         [HttpPost]
         public async Task<ActionResult> Create(CreateModel model)
@@ -60,6 +60,30 @@ namespace IdentyOWIN.Controllers
             } // end if
             return View(model);
         } // end Create() #2
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(string id)
+        {
+            AppUser user = await userManager.FindByIdAsync(id);
+
+            if (user != null)
+            {
+                IdentityResult result = await userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View("Error", result.Errors);
+                }
+            }
+            else
+            {
+                return View("Error", new string[] { "Пользователь не найден" });
+            }
+        } // end Delete()
 
 
 
