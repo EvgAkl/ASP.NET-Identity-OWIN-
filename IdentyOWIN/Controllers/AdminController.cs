@@ -86,6 +86,87 @@ namespace IdentyOWIN.Controllers
         } // end Delete()
 
 
+        public async Task<ActionResult> Edit(string id)
+        {
+            AppUser user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        } // end Edit() #1
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(string id, string userName, string email, string password)
+        {
+            AppUser user = await userManager.FindByIdAsync(id);
+
+            if (user != null)
+            {
+                user.UserName = userName;
+                user.Email = email;
+                IdentityResult validEmail = await userManager.UserValidator.ValidateAsync(user);
+
+                if (!validEmail.Succeeded)
+                {
+                    AddErrorsFromResult(validEmail);
+                }
+
+                IdentityResult validPass = null;
+                if (password != string.Empty)
+                {
+                    validPass = await userManager.PasswordValidator.ValidateAsync(password);
+
+                    if (validPass.Succeeded)
+                    {
+                        user.PasswordHash = userManager.PasswordHasher.HashPassword(password);
+                    }
+                    else
+                    {
+                        AddErrorsFromResult(validPass);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Введите пароль");
+                }
+
+                //if ((validEmail.Succeeded && validPass == null) || (validEmail.Succeeded && password != string.Empty && validPass.Succeeded))
+                if (validEmail.Succeeded && password != string.Empty && validPass.Succeeded)
+                {
+                    IdentityResult result = await userManager.UpdateAsync(user);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        AddErrorsFromResult(result);
+                    }
+                }
+
+            } // end main if
+            else
+            {
+                ModelState.AddModelError("", "Пользователь не найден");
+            }
+
+            return View(user);
+
+        } // end Edit() #2
+
+
+
+
+
+
+
+
+
 
 
     } // end class
