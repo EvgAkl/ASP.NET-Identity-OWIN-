@@ -18,6 +18,8 @@ namespace IdentityOWIN
                 LoginPath = new PathString("/Account/Login")
             });
 
+            app.CreatePerOwinContext<AppRoleManager>(AppRoleManager.Create);
+
         }
 
 
