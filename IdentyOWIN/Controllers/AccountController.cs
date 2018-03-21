@@ -33,9 +33,20 @@ namespace IdentyOWIN.Controllers
 
         //============================================================================
         // action methods
+
+        public ActionResult Index()
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return View("Error", new string[] { "В доступе отказано" });
+            }
+
             ViewBag.returnUrl = returnUrl;
             return View();
         }  // end Login() #1
