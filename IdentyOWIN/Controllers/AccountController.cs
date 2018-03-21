@@ -65,12 +65,16 @@ namespace IdentyOWIN.Controllers
                     return Redirect(returnUrl);
                 }
             }
-
-            
-
             return View(details);
-
         } // end Login() #2
+
+        [Authorize]
+        public ActionResult Logout()
+        {
+            authManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
 
 
 
