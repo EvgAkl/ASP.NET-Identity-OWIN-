@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 namespace IdentyOWIN.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class RoleAdminController : Controller
     {
         // private properties and methods

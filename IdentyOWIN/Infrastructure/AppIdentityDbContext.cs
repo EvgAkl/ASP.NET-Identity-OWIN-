@@ -1,5 +1,6 @@
 ﻿using IdentityOWIN.Models;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IdentityOWIN.Infrastructure
@@ -25,8 +26,35 @@ namespace IdentityOWIN.Infrastructure
     {
         public void PerformInitialSetup(AppIdentityDbContext context)
         {
+            AppUserManager userManager = new AppUserManager(new UserStore<AppUser>(context));
+            AppRoleManager roleManager = new AppRoleManager(new RoleStore<AppRole>(context));
 
-        }
+            string roleName = "Administrators";
+            string userName = "Admin";
+            string password = "myPassword";
+            string email = "admin@mail.ru";
+
+            if (!roleManager.RoleExists(roleName))
+            {
+                roleManager.Create(new AppRole(roleName));
+            }
+
+            AppUser user = userManager.FindByName(userName);
+
+            if (user == null)
+            {
+                userManager.Create(new AppUser { UserName = userName, Email = email },
+                    password);
+
+                user = userManager.FindByName(userName);
+            }
+
+            if (!userManager.IsInRole(user.Id, roleName))
+            {
+                userManager.AddToRole(user.Id, roleName);
+                userManager.Update(user);
+            }
+        } // end PerformInitialSetup()
 
         protected override void Seed(AppIdentityDbContext context)
         {

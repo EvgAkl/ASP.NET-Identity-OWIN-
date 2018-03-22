@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace IdentyOWIN.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class AdminController : Controller
     {
         // private properties and methods

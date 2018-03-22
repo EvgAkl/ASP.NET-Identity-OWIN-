@@ -15,6 +15,7 @@ namespace IdentyOWIN.Controllers
             dict.Add("Аунтифицирован?", HttpContext.User.Identity.IsAuthenticated);
             dict.Add("Тип аунтификации", HttpContext.User.Identity.AuthenticationType);
             dict.Add("В роли Users?", HttpContext.User.IsInRole("Users"));
+            dict.Add("В роли Administrators?", HttpContext.User.IsInRole("Administrators"));
 
             return dict;
         }
