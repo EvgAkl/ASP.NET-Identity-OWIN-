@@ -17,9 +17,47 @@ namespace IdentityOWIN.Models
         MOSCOW
     }
 
+    public enum Countries
+    {
+        [Display(Name = "Не указано")]
+        NONE,
+
+        [Display(Name = "Англия")]
+        ENG,
+
+        [Display(Name = "Франция")]
+        FRA,
+
+        [Display(Name = "Россия")]
+        RUS
+    }
+
+
     public class AppUser : IdentityUser
     {
         public Cities City { get; set; }
+
+        public Countries Country { get; set; }
+
+        public void SetCountryFromCity(Cities city)
+        {
+            switch (city)
+            {
+                case Cities.LONDON:
+                    Country = Countries.ENG;
+                    break;
+                case Cities.PARIS:
+                    Country = Countries.FRA;
+                    break;
+                case Cities.MOSCOW:
+                    Country = Countries.RUS;
+                    break;
+                default:
+                    Country = Countries.NONE;
+                    break;
+            }
+        } // end SetCountryFromCity
+
     } // end class AppUser
 
 

@@ -73,6 +73,8 @@ namespace IdentyOWIN.Controllers
         {
             AppUser user = currentUser;
             user.City = city;
+            user.SetCountryFromCity(city);
+
             await userManager.UpdateAsync(user);
 
             return View(user);

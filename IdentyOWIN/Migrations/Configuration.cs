@@ -49,7 +49,10 @@ namespace IdentyOWIN.Migrations
 
             foreach (AppUser dbUser in userManager.Users)
             {
-                dbUser.City = Cities.MOSCOW;
+                if (dbUser.Country == Countries.NONE)
+                {
+                    dbUser.City = Cities.MOSCOW;
+                }  
             }
 
             context.SaveChanges();
