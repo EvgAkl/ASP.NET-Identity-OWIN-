@@ -1,0 +1,29 @@
+﻿@using IdentyOWIN.Controllers;
+@using IdentityOWIN.Models;
+@using System.Linq;
+@model AppUser
+
+@{
+    ViewBag.Title = "Пользовательские свойства";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Пользовательские свойства
+    </div>
+    <table class="table table-striped">
+        <tr> 
+            <th>Текущий город</th>
+            <td>@HomeController.GetCityName(Model.City)</td>
+        </tr>
+    </table>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Город:</label>
+        @Html.DropDownListFor(x => x.City, new SelectList(Enum.GetValues(typeof(Cities)).OfType<Cities>().Select(c => { return new { Id = c, Text = HomeController.GetCityName(c) }; }), "Id", "Text"))
+    </div>
+    <button class="btn btn-primary" type="submit">Сохранить</button>
+}

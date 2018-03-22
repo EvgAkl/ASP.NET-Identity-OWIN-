@@ -22,7 +22,7 @@ namespace IdentityOWIN.Infrastructure
 
     } // end class AppIdentityDbContext
 
-    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<AppIdentityDbContext>
+    public class IdentityDbInit : CreateDatabaseIfNotExists<AppIdentityDbContext>
     {
         public void PerformInitialSetup(AppIdentityDbContext context)
         {
