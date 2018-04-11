@@ -29,5 +29,8 @@
         <label>Город:</label>
         @Html.DropDownListFor(x => x.City, new SelectList(Enum.GetValues(typeof(Cities)).OfType<Cities>().Select(c => { return new { Id = c, Text = HomeController.GetCityName(c) }; }), "Id", "Text"))
     </div>
+
     <button class="btn btn-primary" type="submit">Сохранить</button>
+    @Html.ActionLink("OK", "Index", null, new { @class = "btn btn-primary" })
+
 }
