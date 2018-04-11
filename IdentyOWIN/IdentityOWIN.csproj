@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClaimController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Infrastructure\IdentityHelpers.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
@@ -218,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Claim\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803221329366_CityProperty.resx">
