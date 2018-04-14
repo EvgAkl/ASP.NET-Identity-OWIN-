@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace IdentyOWIN.Controllers
 {
-    public class ClaimController : Controller
+    public class ClaimsController : Controller
     {
         [Authorize]
         public ActionResult Index()
