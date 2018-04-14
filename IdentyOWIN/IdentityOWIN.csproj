@@ -184,6 +184,7 @@
     <Compile Include="Infrastructure\AppUserManager.cs" />
     <Compile Include="Infrastructure\CustomUserValidator.cs" />
     <Compile Include="Infrastructure\CustuomPasswordValidator.cs" />
+    <Compile Include="Infrastructure\LocationClaimsProvider.cs" />
     <Compile Include="Migrations\201803221329366_CityProperty.cs" />
     <Compile Include="Migrations\201803221329366_CityProperty.Designer.cs">
       <DependentUpon>201803221329366_CityProperty.cs</DependentUpon>
