@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Collections.Generic;
 
-namespace IdentyOWIN.Infrastructure
+namespace IdentityOWIN.Infrastructure
 {
     public class LocationClaimsProvider
     {
