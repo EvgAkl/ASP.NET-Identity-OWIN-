@@ -69,6 +69,7 @@ namespace IdentyOWIN.Controllers
                     ClaimsIdentity ident = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                     ident.AddClaims(LocationClaimsProvider.GetClaims(ident));
+                    ident.AddClaims(ClaimsRole.CreateRolesFromClaims(ident));
 
                     authManager.SignOut();
                     authManager.SignIn(new AuthenticationProperties

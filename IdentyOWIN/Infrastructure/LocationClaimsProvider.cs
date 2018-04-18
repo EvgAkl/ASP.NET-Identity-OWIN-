@@ -14,7 +14,7 @@ namespace IdentityOWIN.Infrastructure
         {
             List<Claim> claims = new List<Claim>();
 
-            if (user.Name.ToLower() == "елена")
+            if (user.Name.ToLower() == "женя")
             {
                 claims.Add(CreateClaim(ClaimTypes.PostalCode, "DC 20500"));
                 claims.Add(CreateClaim(ClaimTypes.StateOrProvince, "DC"));

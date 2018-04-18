@@ -22,6 +22,12 @@ namespace IdentyOWIN.Controllers
 
         } // end Index()
 
+        [Authorize(Roles = "DCStaff")]
+        public string OtherAction()
+        {
+            return "This is protected method";
+        } // end OtherAction()
+
 
 
     } // end controller
